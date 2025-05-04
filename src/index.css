@@ -1,0 +1,57 @@
+/* index.css */
+body {
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background-color: #333; /* Cor de fundo da card */
+  color: #fff;
+}
+
+h1, p {
+  color: #fff;
+}
+
+/* index.css */
+.carousel-item img {
+  max-height: 400px; /* Limita a altura das imagens */
+  object-fit: cover; /* Garante que a imagem preencha a área sem distorção */
+}
+
+.carousel-caption h3 {
+  color: #fff; /* Texto das legendas em branco */
+}
+
+.contagem-container {
+  max-width: 300px; /* Largura mais estreita */
+  height: 150px; /* Altura ajustada */
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 15px; /* Espaço interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contagem-texto {
+  font-size: 1.5rem; /* Tamanho de texto ajustado */
+  font-weight: bold; /* Texto em negrito */
+  color: #333; /* Cor do texto */
+  text-align: center;
+}
+
+.contagem-titulo {
+  font-size: 1.2rem;
+  margin-bottom: 10px; /* Espaço entre título e tempo */
+  color: #444;
+}
