@@ -42,7 +42,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Primeira Imagem</h3>
+                            <h3>Eu te amo mil milhões</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -57,7 +57,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Segunda Imagem</h3>
+                            <h3>Você é minha luz</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -72,7 +72,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Terceira Imagem</h3>
+                            <h3>i love you Cherie</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -87,7 +87,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Quarta Imagem</h3>
+                            <h3>A melhor parte do meu dia</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -102,7 +102,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Quinta Imagem</h3>
+                            <h3>Minha raposinha 🦊</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -117,7 +117,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Sexta Imagem</h3>
+                            <h3>Te vivo</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
