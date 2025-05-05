@@ -27,8 +27,8 @@ const ContagemTempo = () => {
     return (
         <div className="container d-flex flex-column justify-content-center align-items-center min-vh-100">
             {/* Carrossel no centro da tela */}
+            <h1 className="titulo-cursivo">Nossa história juntos</h1>
             <div className="w-100 mb-5">
-                <h2 className="text-center text-white">Galeria de Imagens</h2>
                 <Carousel className="mx-auto" style={{ maxWidth: '400px' }}>
                     <Carousel.Item>
                         <img
@@ -42,7 +42,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Eu te amo mil milhões</h3>
+                            <h3>Eu te amo mil milhões!</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -57,7 +57,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Você é minha luz</h3>
+                            <h3>Você é minha luz!</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -72,7 +72,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>i love you Cherie</h3>
+                            <h3>i love you Cherie!</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -87,7 +87,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>A melhor parte do meu dia</h3>
+                            <h3>A melhor parte do meu dia!</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -102,7 +102,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Minha raposinha 🦊</h3>
+                            <h3>Minha raposinha! 🦊</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -117,7 +117,7 @@ const ContagemTempo = () => {
                             }}
                         />
                         <Carousel.Caption>
-                            <h3>Te vivo</h3>
+                            <h3>Te vivo!</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
