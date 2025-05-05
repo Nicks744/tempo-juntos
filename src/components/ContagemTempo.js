@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap'; // Importando o Carousel do Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContagemTempo = () => {
     const dataInicio = new Date('2024-11-01T00:00:00');
@@ -123,10 +124,43 @@ const ContagemTempo = () => {
                 </Carousel>
             </div>
 
+              {/* Player do Spotify */}
+              <div className="spotify-frame">
+                <h2>Nossa música... 🤍</h2>
+                <iframe
+                    title="Spotify Music"
+                    className="embed-responsive-item"
+                    src="https://open.spotify.com/intl-pt/track/0cP8fL9xvi8OYisR8OJuzN?si=e475926aac514832" // Substitua com seu link do Spotify
+                    width="300"
+                    height="380"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </div>
+
             {/* Contagem de tempo com estilo personalizado */}
             <div className="contagem-container">
                 <h2 className="contagem-titulo">Tempo Juntos</h2>
                 <p className="contagem-texto">{tempo}</p>
+            </div>
+
+            
+
+            {/* Mensagem final */}
+            <div className="mensagem-final">
+                <p>
+                    Nosso amor nasceu de olhares sinceros e cresceu com pequenos gestos, risadas compartilhadas e momentos que marcaram nossa história.
+                    Cada dia ao seu lado é como escrever uma nova página de um livro que quero ler e viver para sempre.
+                    <br /><br />
+                    Você é meu lar, meu porto seguro, minha calmaria em meio ao caos. Em seus abraços encontrei paz, nos seus olhos encontrei verdade, e em sua voz encontrei o som mais bonito do mundo.
+                    <br /><br />
+                    Nem todos os dias são fáceis, mas até nos difíceis, é com você que quero estar. Juntos aprendemos, superamos, evoluímos. Somos um só coração batendo em dois corpos, seguindo na mesma direção.
+                    <br /><br />
+                    Obrigado por ser minha luz, minha alegria, meu melhor presente. Obrigado por acreditar nesse amor que me transforma a cada instante. Prometo continuar te escolhendo, todos os dias, por toda a vida.
+                    <br /><br />
+                    Te amo infinitamente. Essa é só a primeira de muitas páginas da nossa linda história.
+                </p>
             </div>
         </div>
     );
