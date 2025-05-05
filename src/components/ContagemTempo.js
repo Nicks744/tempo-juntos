@@ -124,20 +124,21 @@ const ContagemTempo = () => {
                 </Carousel>
             </div>
 
-              {/* Player do Spotify */}
-              <div className="spotify-frame">
-                <h2>Nossa música... 🤍</h2>
-                <iframe
-                    title="Spotify Music"
-                    className="embed-responsive-item"
-                    src="https://open.spotify.com/intl-pt/track/0cP8fL9xvi8OYisR8OJuzN?si=e475926aac514832" // Substitua com seu link do Spotify
-                    width="300"
-                    height="380"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
-            </div>
+           {/* Player do Spotify */}
+<div className="spotify-frame">
+  <h2>Nossa música... 🤍</h2>
+  <iframe
+    title="Spotify Music"
+    className="embed-responsive-item"
+    src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN"
+    width="300"
+    height="380"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+        </div>
+
 
             {/* Contagem de tempo com estilo personalizado */}
             <div className="contagem-container">
