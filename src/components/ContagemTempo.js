@@ -28,7 +28,7 @@ const ContagemTempo = () => {
     return (
         <div className="container d-flex flex-column justify-content-center align-items-center min-vh-100">
             {/* Carrossel no centro da tela */}
-            <h1 className="titulo-cursivo">Nossa história juntos</h1>
+            <h1 className="titulo-cursivo">Lucas & Cecília</h1>
             <div className="w-100 mb-5">
                 <Carousel className="mx-auto" style={{ maxWidth: '400px' }}>
                     <Carousel.Item>
