@@ -129,8 +129,7 @@ const ContagemTempo = () => {
   <h2>Nossa música... 🤍</h2>
   <iframe
     title="Spotify Music"
-    className="embed-responsive-item"
-    src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN"
+    className="embed-responsive-item" src="https://open.spotify.com/track/1sCQK2JrPRWymjuTfNgKRI?si=HtMLMbLqSYexi3roS-EZvw"
     width="300"
     height="380"
     frameBorder="0"
