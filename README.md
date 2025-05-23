@@ -82,4 +82,4 @@ Este projeto foi feito com carinho 💗 e é de uso pessoal. Fique à vontade pa
 
 ---
 
-Feito com 💘 por \[Lucas Nicolas]
+Feito com 💘 por Lucas Nicolas
