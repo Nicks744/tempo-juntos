@@ -1,8 +1,3 @@
-Claro! Aqui está um exemplo de `README.md` simples, bonito e informativo para sua aplicação React com contagem de tempo de namoro, carrossel de fotos e uma mensagem romântica:
-
----
-
-```markdown
 # 💖 Nossa História Juntos
 
 Um site feito com amor para contar nossa história de namoro, com uma contagem de tempo desde o primeiro dia, um carrossel de fotos e uma mensagem romântica ao final. Totalmente responsivo e com visual encantador.
