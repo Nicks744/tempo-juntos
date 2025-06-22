@@ -1,7 +1,8 @@
-/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap');
+
 body {
-  background-color: #000; /* Fundo preto */
-  color: #fff; /* Texto branco */
+  background-color: #000;
+  color: #fff;
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
@@ -11,47 +12,97 @@ body {
   padding: 20px;
 }
 
-.card {
-  background-color: #333; /* Cor de fundo da card */
-  color: #fff;
-}
-
-h1, p {
-  color: #fff;
-}
-
-/* index.css */
+/* Carrossel */
 .carousel-item img {
-  max-height: 400px; /* Limita a altura das imagens */
-  object-fit: cover; /* Garante que a imagem preencha a área sem distorção */
+  max-height: 400px;
+  object-fit: cover;
 }
 
 .carousel-caption h3 {
-  color: #fff; /* Texto das legendas em branco */
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px #edf10a;
 }
 
-.contagem-container {
-  max-width: 300px; /* Largura mais estreita */
-  height: 150px; /* Altura ajustada */
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
-  border-radius: 15px; /* Bordas arredondadas */
-  padding: 15px; /* Espaço interno */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contagem-texto {
-  font-size: 1.5rem; /* Tamanho de texto ajustado */
-  font-weight: bold; /* Texto em negrito */
-  color: #333; /* Cor do texto */
+/* Título */
+.titulo-cursivo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #fff;
   text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px #edf10a;
+}
+
+/* Spotify */
+.spotify-frame {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.spotify-frame h2 {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 3px #edf10a;
+}
+
+/* Contagem */
+.contagem-container {
+  color: #fff;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 40px;
 }
 
 .contagem-titulo {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px #edf10a;
+}
+
+.contagem-duas-colunas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.tempo-box {
+  background-color: #fff;
+  color: #262424;
+  padding: 10px;
+  border-radius: 10px;
+  width: 120px;
+  height: 80px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 1px 1px 2px #edf10a;
+}
+
+.tempo-box strong {
+  font-size: 1.8rem;
+}
+
+.tempo-box span {
   font-size: 1.2rem;
-  margin-bottom: 10px; /* Espaço entre título e tempo */
-  color: #444;
+}
+
+/* Mensagem final */
+.mensagem-final {
+  margin-top: 40px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Playfair Display', serif;
+  padding: 0 20px;
+  max-width: 700px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px #edf10a;
 }
