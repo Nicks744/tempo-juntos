@@ -15,7 +15,7 @@ const mensagemParagrafos = [
 
 const ContagemTempo = () => {
     // CORREÇÃO APLICADA AQUI: Criando a data de forma mais segura
-    const dataInicio = new Date(2023, 10, 3); // Ano, Mês (0-11), Dia -> Ajustado para 2023 para gerar marcos passados
+    const dataInicio = new Date(2024, 10, 3); 
     
     const [tempo, setTempo] = useState({
         anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0,
