@@ -1,1 +1,208 @@
+/* ===== GERAL E FONTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap');
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.main-container {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    min-height: 100vh;
+    color: #f5e6a1;
+    font-family: 'Dancing Script', cursive;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== TÍTULOS ===== */
+.titulo-principal {
+    font-size: 3rem;
+    color: #f5e6a1;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px #4b4b3f;
+}
+
+.subtitulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #f5e6a1;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #4b4b3f;
+}
+
+/* ===== CARROSSEL ===== */
+.carousel-container {
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.carousel-imagem {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(0.85);
+}
+
+.carousel-legenda {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #f5e6a1;
+    text-shadow: 1px 1px 2px #4b4b3f;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgba(18, 18, 18, 0.6);
+}
+
+/* ===== SPOTIFY ===== */
+.spotify-frame {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.spotify-player {
+    border-radius: 10px;
+    filter: brightness(0.9);
+}
+
+
+/* ===== CONTAGEM DE TEMPO ===== */
+.contagem-grid {
+    max-width: 320px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+    justify-items: center;
+    color: #f5e6a1;
+    background-color: #222222;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.3);
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    user-select: none;
+}
+
+.tempo-box {
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    border: 2px solid #f5e6a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 6px rgba(245, 230, 161, 0.4);
+    transition: transform 0.2s ease-in-out;
+}
+
+.tempo-box:hover {
+    transform: scale(1.05);
+}
+
+.tempo-box strong {
+    font-size: 2.2rem;
+}
+
+.tempo-box span {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+/* ===== MENSAGEM FINAL E BOTÃO ===== */
+.mensagem-final {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: #f5e6a1;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px #4b4b3f;
+    padding: 0 20px;
+    user-select: text;
+}
+
+.mensagem-final p {
+    margin-bottom: 20px;
+}
+
+.botao-revelar {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #121212;
+    background-color: #f5e6a1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+.botao-revelar:hover {
+    background-color: #fff;
+}
+
+/* ===== ESTILOS PARA MARCOS IMPORTANTES ===== */
+.marcos-container {
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: rgba(34, 34, 34, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.2);
+    border: 1px solid #444;
+}
+
+.marco-item {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #f5e6a1;
+    text-shadow: 1px 1px 1px #222;
+    border-left: 5px solid #f5e6a1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.marco-item:last-child {
+    margin-bottom: 0;
+}
+
+.marco-item p {
+    margin: 0;
+}
+
+/* Estilo para o ícone de check */
+.check-icon {
+    margin-right: 12px;
+    font-size: 1.5rem;
+    line-height: 1; /* Alinha o emoji verticalmente */
+}
+
+/* Estilo para marcos já conquistados */
+.marco-conquistado {
+    border-left-color: #28a745; /* Verde para sucesso */
+    background-color: #2a3a2e; /* Tom de verde escuro */
+}
+
+.marco-conquistado p {
+    color: #a7c3ac; /* Cor de texto mais clara para contraste */
+}
 
