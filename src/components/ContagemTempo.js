@@ -15,7 +15,7 @@ const mensagemParagrafos = [
 
 const ContagemTempo = () => {
     // CORREÇÃO APLICADA AQUI: Criando a data de forma mais segura
-    const dataInicio = new Date(2024, 10, 3); // Ano, Mês (0-11), Dia
+    const dataInicio = new Date(2023, 10, 3); // Ano, Mês (0-11), Dia -> Ajustado para 2023 para gerar marcos passados
     
     const [tempo, setTempo] = useState({
         anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0,
@@ -113,7 +113,8 @@ const ContagemTempo = () => {
 
             <div className="mensagem-final">
                 {mensagemParagrafos.slice(0, paragrafosVisiveis).map((paragrafo, index) => (<p key={index}>{paragrafo}</p>))}
-                {paragrafosVisiveis < paragrafosVisiveis.length && (<button className="botao-revelar" onClick={() => setParagrafosVisiveis(paragrafosVisiveis + 1)}>Continuar lendo... 💌</button>)}
+                {/* CORREÇÃO APLICADA AQUI */}
+                {paragrafosVisiveis < mensagemParagrafos.length && (<button className="botao-revelar" onClick={() => setParagrafosVisiveis(paragrafosVisiveis + 1)}>Continuar lendo... 💌</button>)}
             </div>
         </div>
     );
