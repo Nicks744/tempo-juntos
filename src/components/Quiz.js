@@ -25,8 +25,8 @@ const questions = [
         questionText: 'Qual foi a data da nossa primeira foto juntos?',
         answerOptions: [
             { answerText: '07/11/2024', isCorrect: false },
-            { answerText: '10/10/2024', isCorrect: false },
-            { answerText: '26/10/2024', isCorrect: true },
+            { answerText: '24/10/2024', isCorrect: false },
+            { answerText: '11/10/2024', isCorrect: true },
             { answerText: '05/11/2024', isCorrect: false },
         ],
     },
@@ -130,5 +130,6 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
 
 
