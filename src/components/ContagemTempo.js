@@ -3,8 +3,6 @@ import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { addYears, differenceInDays, format, differenceInYears } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-
-// Importe o novo componente Quiz
 import Quiz from './Quiz';
 
 const mensagemParagrafos = [
@@ -16,7 +14,9 @@ const mensagemParagrafos = [
 ];
 
 const ContagemTempo = () => {
-    const dataInicio = new Date("2024-11-03T00:00:00");
+    // CORREÇÃO APLICADA AQUI: Criando a data de forma mais segura
+    const dataInicio = new Date(2024, 10, 3); // Ano, Mês (0-11), Dia
+    
     const [tempo, setTempo] = useState({
         anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0,
     });
@@ -48,7 +48,7 @@ const ContagemTempo = () => {
         calcularTempo();
         const intervalo = setInterval(calcularTempo, 1000);
         return () => clearInterval(intervalo);
-    }, []);
+    }, [dataInicio]);
 
     useEffect(() => {
         const hoje = new Date();
@@ -77,7 +77,7 @@ const ContagemTempo = () => {
         }
         
         setMarcos(listaMarcos);
-    }, []);
+    }, [dataInicio]);
 
     return (
         <div className="main-container">
@@ -109,12 +109,11 @@ const ContagemTempo = () => {
                 </div>
             )}
             
-            {/* Adicione o componente do Quiz aqui */}
             <Quiz />
 
             <div className="mensagem-final">
                 {mensagemParagrafos.slice(0, paragrafosVisiveis).map((paragrafo, index) => (<p key={index}>{paragrafo}</p>))}
-                {paragrafosVisiveis < mensagemParagrafos.length && (<button className="botao-revelar" onClick={() => setParagrafosVisiveis(paragrafosVisiveis + 1)}>Continuar lendo... 💌</button>)}
+                {paragrafosVisiveis < paragrafosVisiveis.length && (<button className="botao-revelar" onClick={() => setParagrafosVisiveis(paragrafosVisiveis + 1)}>Continuar lendo... 💌</button>)}
             </div>
         </div>
     );
