@@ -35,8 +35,8 @@ const questions = [
         answerOptions: [
             { answerText: 'Colar de Coracão rosa', isCorrect: false },
             { answerText: 'Uma Caneca', isCorrect: false },
-            { answerText: 'Caixa de lembranças', isCorrect: false },
-            { answerText: 'Brincos de coração', isCorrect: true },
+            { answerText: 'Brincos de coração', isCorrect: false },
+            { answerText: 'Caixa de lembranças', isCorrect: true },
         ],
     },
      {
@@ -130,4 +130,5 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
 
