@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap');
+
+/* --- Configuração Geral --- */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    min-height: 100vh;
+    color: #f5e6a1;
+    font-family: "'Dancing Script', cursive";
+    padding: 20px;
+    text-align: center;
+    overflow-x: hidden; /* Previne scroll horizontal */
+    z-index: 2; /* Fica por cima do fundo */
+    position: relative;
+}
+
+/* --- Títulos --- */
+.titulo-principal {
+    font-size: 3rem;
+    color: #f5e6a1;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px #4b4b3f;
+    font-family: 'Dancing Script', cursive;
+}
+
+.subtitulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem; /* Padronizado */
+    text-shadow: 1px 1px 2px #4b4b3f;
+    margin-bottom: 15px;
+    color: #f5e6a1;
+}
+
+/* --- NOVA GALERIA DE FOTOS (Estilo Polaroid) --- */
+.galeria-grid {
+    display: grid;
+    /* Ajustado para polaroids, minmax(150px, ...) dá um tamanho bom */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 20px; /* Mais espaço entre as polaroids */
+    max-width: 800px;
+    margin: 0 auto 40px;
+    
+    /* REMOVIDO: clip-path, aspect-ratio, padding, etc. do coração */
+}
+
+.galeria-item {
+    cursor: pointer;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* NOVO: Estilo Polaroid */
+    background-color: #fff; /* A base branca da polaroid */
+    padding: 10px; /* Espaço para a borda branca */
+    padding-bottom: 25px; /* Mais espaço em baixo */
+    border-radius: 3px; /* Cantos ligeiramente arredondados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    
+    /* REMOVIDO: aspect-ratio: 1/1, border-radius: 8px */
+}
+
+.galeria-item:hover {
+    transform: scale(1.05) rotate(2deg); /* Efeito leve de rotação no hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.galeria-thumbnail {
+    width: 100%;
+    height: 150px; /* Altura fixa para a imagem dentro da polaroid */
+    object-fit: cover;
+    display: block;
+    border: 1px solid #eee; /* Uma borda interna subtil */
+}
+
+/* --- Modal da Galeria (Lightbox) --- */
+.galeria-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px;
+    box-sizing: border-box;
+    /* Animação de Fade-in */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.galeria-modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* NOVO: Estilo Polaroid Gigante */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 350px; /* Largura do Polaroid */
+    max-height: 90vh; /* Altura máxima */
+    box-sizing: border-box;
+    
+    /* Animação de Zoom-in */
+    animation: zoomIn 0.3s ease-out;
+}
+
+.galeria-modal-img {
+    /* MUDANÇA: Imagem quadrada dentro do polaroid */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1; /* Imagem quadrada */
+    object-fit: cover;
+    border-radius: 0; /* Cantos retos */
+    max-width: 100%;
+}
+
+.galeria-modal-descricao {
+    /* MUDANÇA: Texto "escrito" no polaroid */
+    font-family: 'Dancing Script', cursive;
+    color: #333; /* Cor escura no papel branco */
+    text-shadow: none; /* Sem sombra */
+    font-size: 1.6rem; /* Tamanho ajustado */
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.galeria-modal-fechar {
+    position: absolute;
+    /* MUDANÇA: Posição no canto superior direito do ecrã */
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem; /* Ajustado */
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 1002;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Sombra para visibilidade */
+}
+
+.galeria-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* MUDANÇA: Fundo mais escuro para melhor contraste */
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    transition: background 0.3s;
+}
+
+.galeria-modal-nav:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.galeria-modal-nav.prev {
+    left: 20px; /* Espaçamento ajustado */
+}
+
+.galeria-modal-nav.next {
+    right: 20px; /* Espaçamento ajustado */
+}
+
+.galeria-modal-nav svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* NOVO: Keyframes para as Animações do Modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+
+/* --- Spotify --- */
+.spotify-frame {
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.spotify-player {
+    border-radius: 10px;
+    filter: brightness(0.9);
+    border: none;
+    max-width: 90%;
+}
+
+/* --- Contagem de Tempo --- */
+.contagem-grid {
+    max-width: 320px; /* Ajustado para 2 colunas */
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 15px; /* Espaçamento uniforme */
+    justify-items: center;
+    color: #f5e6a1;
+    background-color: #222222;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.3);
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    user-select: none;
+}
+
+.tempo-box {
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    border: 2px solid #f5e6a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 6px rgba(245, 230, 161, 0.4);
+}
+
+.tempo-box strong {
+    font-size: 2rem;
+}
+
+.tempo-box span {
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+/* --- Secção de Marcos --- */
+.marcos-container {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background-color: #222;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.3);
+}
+
+.marco-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 5px solid #f5e6a1; /* Destaque futuro */
+    background-color: #2e2e2e;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.marco-item.marco-conquistado {
+    border-left-color: #5cb85c; /* Verde para conquistado */
+    background-color: #282828;
+    color: #aaa; /* Cor mais suave para o passado */
+}
+
+.marco-item.marco-conquistado p {
+    text-decoration: line-through;
+}
+
+/* --- Mensagem Final (COM ANIMAÇÃO DE REVELAÇÃO) --- */
+.mensagem-final {
+    max-width: 700px;
+    margin: 40px auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px #4b4b3f;
+    padding: 0 20px;
+    user-select: text;
+    position: relative;
+    text-align: center;
+}
+
+.botao-revelar {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #121212;
+    background-color: #f5e6a1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    cursor: pointer;
+    margin-bottom: 25px; /* Ajustado para dar espaço antes do texto */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block; 
+}
+
+.botao-revelar:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+.mensagem-paragrafo {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.mensagem-texto-clipper {
+    /* Começa "clipado" (escondido) e invisível */
+    clip-path: inset(0 0 100% 0); /* (top, right, bottom, left) - 100% em 'bottom' esconde tudo */
+    opacity: 0;
+    
+    /* Transição longa e suave para a revelação */
+    transition: clip-path 2.5s ease-in-out, opacity 1.5s ease-in;
+}
+
+.mensagem-texto-clipper.is-revealed {
+    /* Revela o texto ao "abrir" o clip-path para 0% em 'bottom' */
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+}
+
+/* --- ÍCONES SVG --- */
+
+/* Estilo base para todos os ícones */
+.icon-svg {
+    width: 1em; /* Faz o ícone ter o tamanho da fonte */
+    height: 1em;
+    vertical-align: -0.15em; /* Alinha o ícone com o texto */
+    fill: currentColor; /* Faz o ícone ter a cor do texto */
+}
+
+/* Ícone de Brilho (Títulos) */
+.icon-sparkle {
+    fill: #f5e6a1;
+    margin-left: 5px;
+}
+
+/* Ícone de Check (Marcos) */
+.icon-check {
+    fill: #5cb85c; /* Cor verde do check */
+    margin-right: 10px;
+    vertical-align: -0.1em;
+}
+
+/* Ícone de Coração (Título do Quiz) */
+.icon-heart {
+    fill: #e91e63; /* Cor rosa/vermelho */
+    margin-left: 5px;
+}
+
+/* Ícone de Carta (Botão Revelar) */
+.botao-revelar .icon-letter {
+    margin-right: 10px;
+    vertical-align: -0.2em;
+    fill: #121212; /* Cor do texto do botão */
+}
+

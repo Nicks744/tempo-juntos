@@ -1,0 +1,103 @@
+.quiz-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #222;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.2);
+    border: 1px solid #444;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
+}
+
+.question-section {
+    margin-bottom: 20px;
+}
+
+.question-count {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #f5e6a1;
+}
+
+.question-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    color: #f5e6a1;
+    background-color: #2e2e2e;
+    border: 2px solid #444;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.answer-button:hover:not(:disabled) {
+    background-color: #444;
+    border-color: #f5e6a1;
+    transform: scale(1.02);
+}
+
+.answer-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.score-section {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.score-message {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #f5e6a1;
+    font-family: 'Dancing Script', cursive;
+}
+
+.restart-button {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #121212;
+    background-color: #f5e6a1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+    background-color: #fff;
+}
+
+/* Estilos para o feedback de certo e errado */
+.answer-button.correct {
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+}
+
+.answer-button.incorrect {
+    background-color: #dc3545; /* Vermelho */
+    border-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+}
+
