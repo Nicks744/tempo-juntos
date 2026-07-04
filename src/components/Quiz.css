@@ -1,14 +1,17 @@
 .quiz-container {
     max-width: 600px;
     width: 100%;
-    background-color: #222;
+    margin: 0 auto 40px;
+    background-color: rgba(28, 28, 30, 0.55);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.2);
-    border: 1px solid #444;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(245, 230, 161, 0.18);
     color: #fff;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 40px;
+    box-sizing: border-box;
 }
 
 .question-section {

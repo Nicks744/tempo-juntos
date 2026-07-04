@@ -11,6 +11,7 @@ import Surpresa from './Surpresa';
 import Confetti from './Confetti';
 import Reveal from './Reveal';
 import MuralRecados from './MuralRecados';
+import useCountUp from '../hooks/useCountUp';
 
 const mensagemParagrafos = [
     "Nosso amor nasceu de olhares sinceros e cresceu com pequenos gestos, risadas compartilhadas e momentos que marcaram nossa história. Cada dia ao seu lado é como escrever uma nova página de um livro que quero ler e viver para sempre.",
@@ -73,6 +74,7 @@ const ContagemTempo = () => {
         "e a nossa história só está começando ✨",
     ];
     const fraseDoDia = frasesTempo[totalDias % frasesTempo.length];
+    const totalDiasAnimado = useCountUp(totalDias);
 
     const comemorar = () => {
         setConfeteAtivo(false);
@@ -156,7 +158,7 @@ const ContagemTempo = () => {
             <Reveal>
                 <div className="spotify-frame">
                     <h2 className="subtitulo">Nossa música... 🤍</h2>
-                    <iframe title="Spotify Music" className="spotify-player" src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
+                    <iframe title="Spotify Music" className="spotify-player" src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN" width="300" height="380" frameBorder="0" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
                 </div>
             </Reveal>
 
@@ -164,7 +166,7 @@ const ContagemTempo = () => {
                 <h2 className="subtitulo">Tempo Juntos</h2>
                 <div className="contagem-grid">{["anos", "meses", "dias", "horas", "minutos", "segundos"].map((unidade) => (<div key={unidade} className="tempo-box"><strong>{tempo[unidade]}</strong><span>{unidade}</span></div>))}</div>
                 <p className="contagem-total">
-                    <strong>{totalDias.toLocaleString('pt-BR')}</strong> dias juntos — {fraseDoDia}
+                    <strong>{totalDiasAnimado.toLocaleString('pt-BR')}</strong> dias juntos — {fraseDoDia}
                 </p>
                 <button className="botao-comemorar" onClick={comemorar}>
                     🎉 Comemorar nosso amor

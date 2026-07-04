@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap');
+/* As fontes são carregadas no index.html (com preconnect) para não bloquear a renderização. */
 
 /* --- Configuração Geral --- */
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 .main-container {
-    background: linear-gradient(135deg, #121212, #1e1e1e);
+    background: transparent; /* Deixa a aurora aparecer atrás do conteúdo */
     min-height: 100vh;
     color: #f5e6a1;
     font-family: "'Dancing Script', cursive";
@@ -19,6 +19,34 @@ body {
     overflow-x: hidden; /* Previne scroll horizontal */
     z-index: 2; /* Fica por cima do fundo */
     position: relative;
+}
+
+/* --- Fundo aurora animado --- */
+.aurora-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(40% 50% at 15% 20%, rgba(233, 30, 99, 0.22), transparent 60%),
+        radial-gradient(45% 55% at 85% 15%, rgba(245, 230, 161, 0.16), transparent 60%),
+        radial-gradient(50% 60% at 75% 80%, rgba(120, 80, 200, 0.20), transparent 60%),
+        radial-gradient(45% 55% at 20% 85%, rgba(60, 90, 180, 0.18), transparent 60%),
+        #0a0a0a;
+    background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+    animation: auroraFlow 24s ease-in-out infinite alternate;
+    filter: blur(4px);
+}
+
+@keyframes auroraFlow {
+    0%   { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0; }
+    50%  { background-position: 60% 40%, 40% 60%, 40% 40%, 60% 60%, 0 0; }
+    100% { background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aurora-bg { animation: none; }
 }
 
 /* --- Títulos --- */
@@ -52,17 +80,29 @@ body {
 
 .galeria-item {
     cursor: pointer;
-    overflow: hidden; 
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+
+    /* Reset de estilo de botão (o item agora é um <button> por acessibilidade) */
+    border: none;
+    font: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+
     /* NOVO: Estilo Polaroid */
     background-color: #fff; /* A base branca da polaroid */
     padding: 10px; /* Espaço para a borda branca */
     padding-bottom: 25px; /* Mais espaço em baixo */
     border-radius: 3px; /* Cantos ligeiramente arredondados */
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    
+
     /* REMOVIDO: aspect-ratio: 1/1, border-radius: 8px */
+}
+
+.galeria-item:focus-visible {
+    outline: 3px solid #f5e6a1;
+    outline-offset: 3px;
 }
 
 .galeria-item:hover {
@@ -228,10 +268,13 @@ body {
     gap: 15px; /* Espaçamento uniforme */
     justify-items: center;
     color: #f5e6a1;
-    background-color: #222222;
+    background-color: rgba(28, 28, 30, 0.55);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border: 1px solid rgba(245, 230, 161, 0.18);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
     user-select: none;
@@ -241,13 +284,19 @@ body {
     width: 100px;
     height: 80px;
     border-radius: 10px;
-    background-color: #2e2e2e;
+    background-color: rgba(46, 46, 46, 0.6);
     border: 2px solid #f5e6a1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 6px rgba(245, 230, 161, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tempo-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 16px rgba(245, 230, 161, 0.7);
 }
 
 .tempo-box strong {
@@ -263,10 +312,13 @@ body {
 .marcos-container {
     max-width: 600px;
     margin: 0 auto 40px;
-    background-color: #222;
+    background-color: rgba(28, 28, 30, 0.55);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border: 1px solid rgba(245, 230, 161, 0.18);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(245, 230, 161, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .marco-item {

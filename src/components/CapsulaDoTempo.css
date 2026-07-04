@@ -18,7 +18,9 @@
 }
 
 .capsula-carta {
-    background: linear-gradient(135deg, #232323, #2b2620);
+    background: linear-gradient(135deg, rgba(35, 35, 35, 0.6), rgba(43, 38, 32, 0.55));
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
     border: 1px solid rgba(245, 230, 161, 0.25);
     border-radius: 14px;
     padding: 22px 18px;
