@@ -1,7 +1,7 @@
 /* Service worker simples: permite instalar o site como app e usá-lo offline.
  * Estratégia: network-first com fallback para cache (bom para um app que
  * muda pouco, mas que deve funcionar mesmo sem internet). */
-const CACHE = 'tempo-juntos-v1';
+const CACHE = 'tempo-juntos-v2';
 const ESSENCIAIS = ['./', './index.html', './manifest.json', './favicon.ico'];
 
 self.addEventListener('install', (event) => {
