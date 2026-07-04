@@ -1,0 +1,129 @@
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 10px;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Linha vertical central */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, #f5e6a1 12%, #f5e6a1 88%, transparent);
+    opacity: 0.6;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+.timeline-item.esquerda {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.direita {
+    left: 50%;
+    text-align: left;
+}
+
+/* Ponto (emoji) sobre a linha */
+.timeline-ponto {
+    position: absolute;
+    top: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #222;
+    border: 2px solid #f5e6a1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 0 10px rgba(245, 230, 161, 0.5);
+    z-index: 2;
+}
+
+.timeline-item.esquerda .timeline-ponto {
+    right: -22px;
+}
+
+.timeline-item.direita .timeline-ponto {
+    left: -22px;
+}
+
+.timeline-card {
+    display: inline-block;
+    text-align: left;
+    background-color: #222;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(245, 230, 161, 0.25);
+    max-width: 100%;
+}
+
+.timeline-data {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: #f5e6a1;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.timeline-titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #f5e6a1;
+    margin: 0 0 8px;
+}
+
+.timeline-foto {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.timeline-texto {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e8e8e8;
+    margin: 0;
+}
+
+/* --- Responsivo: no celular, tudo de um lado só --- */
+@media (max-width: 640px) {
+    .timeline::before {
+        left: 22px;
+    }
+    .timeline-item,
+    .timeline-item.esquerda,
+    .timeline-item.direita {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 56px;
+        padding-right: 10px;
+    }
+    .timeline-item.esquerda .timeline-ponto,
+    .timeline-item.direita .timeline-ponto {
+        left: 0;
+        right: auto;
+    }
+}

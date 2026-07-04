@@ -1,0 +1,165 @@
+.mural-container {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding: 10px;
+}
+
+.mural-legenda {
+    font-family: 'Playfair Display', serif;
+    color: #cfc79a;
+    font-size: 1rem;
+    margin: -6px 0 20px;
+}
+
+.mural-aviso {
+    font-family: 'Playfair Display', serif;
+    color: #cfc79a;
+    background-color: #222;
+    border: 1px dashed rgba(245, 230, 161, 0.4);
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.95rem;
+}
+
+.mural-aviso code {
+    color: #f5e6a1;
+}
+
+/* --- Formulário --- */
+.mural-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #222;
+    border: 1px solid rgba(245, 230, 161, 0.25);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 24px;
+}
+
+.mural-input,
+.mural-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2e2e2e;
+    border: 1px solid rgba(245, 230, 161, 0.3);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #f5f0dd;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mural-input:focus,
+.mural-textarea:focus {
+    outline: none;
+    border-color: #f5e6a1;
+    box-shadow: 0 0 8px rgba(245, 230, 161, 0.3);
+}
+
+.mural-input::placeholder,
+.mural-textarea::placeholder {
+    color: #8a856f;
+}
+
+.mural-form-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.mural-contador {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #8a856f;
+}
+
+.mural-botao {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #121212;
+    background: linear-gradient(135deg, #f5e6a1, #f0d97a);
+    border: none;
+    border-radius: 18px;
+    padding: 8px 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.mural-botao:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.mural-botao:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.mural-erro {
+    color: #ff9c9c;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+/* --- Lista de recados --- */
+.mural-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.mural-vazio {
+    font-family: 'Playfair Display', serif;
+    color: #cfc79a;
+    font-style: italic;
+}
+
+.mural-card {
+    background: linear-gradient(135deg, #232323, #2b2620);
+    border: 1px solid rgba(245, 230, 161, 0.2);
+    border-left: 4px solid #f5e6a1;
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: left;
+    animation: muralEntra 0.4s ease-out;
+}
+
+@keyframes muralEntra {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mural-card-msg {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: #ececec;
+    margin: 0 0 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.mural-card-rodape {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mural-card-nome {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.35rem;
+    color: #f5e6a1;
+}
+
+.mural-card-data {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #8a856f;
+}

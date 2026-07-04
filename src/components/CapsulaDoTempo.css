@@ -1,0 +1,87 @@
+.capsula-container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 10px;
+}
+
+.capsula-legenda {
+    font-family: 'Playfair Display', serif;
+    color: #cfc79a;
+    font-size: 1rem;
+    margin: -6px 0 20px;
+}
+
+.capsula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.capsula-carta {
+    background: linear-gradient(135deg, #232323, #2b2620);
+    border: 1px solid rgba(245, 230, 161, 0.25);
+    border-radius: 14px;
+    padding: 22px 18px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.capsula-carta.liberada {
+    cursor: pointer;
+}
+
+.capsula-carta.liberada:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(245, 230, 161, 0.15);
+    border-color: rgba(245, 230, 161, 0.6);
+}
+
+.capsula-carta.trancada {
+    opacity: 0.75;
+    filter: grayscale(0.3);
+}
+
+.capsula-selo {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.capsula-titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #f5e6a1;
+    margin: 0 0 10px;
+}
+
+.capsula-acao {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #cfc79a;
+    font-style: italic;
+}
+
+.capsula-contagem {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #cfc79a;
+    line-height: 1.5;
+}
+
+.capsula-contagem small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.capsula-mensagem {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #ececec;
+    margin: 6px 0 0;
+    animation: capsulaAbre 0.5s ease-out;
+}
+
+@keyframes capsulaAbre {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}

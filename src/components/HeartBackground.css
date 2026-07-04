@@ -22,3 +22,29 @@
     }
 }
 
+/* --- Chuva de corações ambiente (cai do topo suavemente) --- */
+.heart-ambiente {
+    position: fixed;
+    top: -40px;
+    z-index: 3; /* Sobre o conteúdo, mas com opacidade baixa e sem bloquear cliques */
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation-name: caiSuave;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes caiSuave {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(105vh) rotate(120deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .heart-ambiente {
+        display: none;
+    }
+}

@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 // REMOVIDO: import { Carousel } from "react-bootstrap";
 // REMOVIDO: import "bootstrap/dist/css/bootstrap.min.css";
 import { addYears, differenceInDays, format, differenceInYears } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Quiz from './Quiz';
 import GaleriaFotos from './GaleriaFotos'; // ADICIONADO
+import Timeline from './Timeline';
+import CapsulaDoTempo from './CapsulaDoTempo';
+import Surpresa from './Surpresa';
+import Confetti from './Confetti';
+import Reveal from './Reveal';
+import MuralRecados from './MuralRecados';
 
 const mensagemParagrafos = [
     "Nosso amor nasceu de olhares sinceros e cresceu com pequenos gestos, risadas compartilhadas e momentos que marcaram nossa história. Cada dia ao seu lado é como escrever uma nova página de um livro que quero ler e viver para sempre.",
@@ -47,7 +53,8 @@ const IconLetter = () => (
 
 
 const ContagemTempo = () => {
-    const dataInicio = new Date(2024, 10, 3); // Ano, Mês (0-11), Dia
+    // useMemo garante a mesma referência entre renders (evita re-executar os efeitos à toa)
+    const dataInicio = useMemo(() => new Date(2024, 10, 3), []); // Ano, Mês (0-11), Dia
     
     const [tempo, setTempo] = useState({
         anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0,
@@ -55,6 +62,24 @@ const ContagemTempo = () => {
     
     const [isMensagemRevealed, setIsMensagemRevealed] = useState(false);
     const [marcos, setMarcos] = useState([]);
+    const [totalDias, setTotalDias] = useState(0);
+    const [confeteAtivo, setConfeteAtivo] = useState(false);
+
+    // Frases dinâmicas baseadas no total de dias juntos
+    const frasesTempo = [
+        "já são muitos amanheceres ao seu lado 🌅",
+        "e cada dia eu te amo um pouquinho mais 💛",
+        "de mãos dadas e coração cheio 🤍",
+        "e a nossa história só está começando ✨",
+    ];
+    const fraseDoDia = frasesTempo[totalDias % frasesTempo.length];
+
+    const comemorar = () => {
+        setConfeteAtivo(false);
+        // reinicia o confete mesmo se já estava ativo
+        requestAnimationFrame(() => setConfeteAtivo(true));
+        setTimeout(() => setConfeteAtivo(false), 5200);
+    };
 
     useEffect(() => {
         const calcularTempo = () => {
@@ -75,6 +100,7 @@ const ContagemTempo = () => {
                 meses += 12;
             }
             setTempo({ anos, meses, dias, horas, minutos, segundos });
+            setTotalDias(differenceInDays(agora, dataInicio));
         };
 
         calcularTempo();
@@ -117,34 +143,65 @@ const ContagemTempo = () => {
 
     return (
         <div className="main-container">
+            <Surpresa dataInicio={dataInicio} />
+            <Confetti ativo={confeteAtivo} />
+
             <h1 className="titulo-principal">Lucas & Cecília</h1>
-            
+
             {/* CARROSSEL SUBSTITUÍDO PELA GALERIA */}
-            <GaleriaFotos fotos={listaDeFotos} />
+            <Reveal>
+                <GaleriaFotos fotos={listaDeFotos} />
+            </Reveal>
 
-            <div className="spotify-frame">
-                <h2 className="subtitulo">Nossa música... 🤍</h2>
-                <iframe title="Spotify Music" className="spotify-player" src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
-            </div>
-
-            <h2 className="subtitulo">Tempo Juntos</h2>
-            <div className="contagem-grid">{["anos", "meses", "dias", "horas", "minutos", "segundos"].map((unidade) => (<div key={unidade} className="tempo-box"><strong>{tempo[unidade]}</strong><span>{unidade}</span></div>))}</div>
-            
-            {marcos.length > 0 && (
-                <div className="marcos-container">
-                     <h2 className="subtitulo">Nossos Marcos <IconSparkle /></h2>
-                    {marcos.map((marco, index) => (
-                        <div key={index} className={`marco-item ${marco.conquistado ? 'marco-conquistado' : ''}`}>
-                            <p>
-                                {marco.conquistado && <IconCheck />}
-                                {marco.texto}
-                            </p>
-                        </div>
-                    ))}
+            <Reveal>
+                <div className="spotify-frame">
+                    <h2 className="subtitulo">Nossa música... 🤍</h2>
+                    <iframe title="Spotify Music" className="spotify-player" src="https://open.spotify.com/embed/track/0cP8fL9xvi8OYisR8OJuzN" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
                 </div>
+            </Reveal>
+
+            <Reveal>
+                <h2 className="subtitulo">Tempo Juntos</h2>
+                <div className="contagem-grid">{["anos", "meses", "dias", "horas", "minutos", "segundos"].map((unidade) => (<div key={unidade} className="tempo-box"><strong>{tempo[unidade]}</strong><span>{unidade}</span></div>))}</div>
+                <p className="contagem-total">
+                    <strong>{totalDias.toLocaleString('pt-BR')}</strong> dias juntos — {fraseDoDia}
+                </p>
+                <button className="botao-comemorar" onClick={comemorar}>
+                    🎉 Comemorar nosso amor
+                </button>
+            </Reveal>
+
+            <Reveal>
+                <Timeline />
+            </Reveal>
+
+            {marcos.length > 0 && (
+                <Reveal>
+                    <div className="marcos-container">
+                         <h2 className="subtitulo">Nossos Marcos <IconSparkle /></h2>
+                        {marcos.map((marco, index) => (
+                            <div key={index} className={`marco-item ${marco.conquistado ? 'marco-conquistado' : ''}`}>
+                                <p>
+                                    {marco.conquistado && <IconCheck />}
+                                    {marco.texto}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </Reveal>
             )}
-            
-            <Quiz />
+
+            <Reveal>
+                <CapsulaDoTempo />
+            </Reveal>
+
+            <Reveal>
+                <Quiz />
+            </Reveal>
+
+            <Reveal>
+                <MuralRecados />
+            </Reveal>
 
             <div className="mensagem-final">
                 

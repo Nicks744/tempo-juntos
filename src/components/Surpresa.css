@@ -1,0 +1,84 @@
+.surpresa-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: radial-gradient(circle at center, rgba(30, 20, 40, 0.92), rgba(0, 0, 0, 0.96));
+    animation: surpresaFade 0.6s ease-out;
+}
+
+@keyframes surpresaFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.surpresa-card {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e1e, #2a2320);
+    border: 1px solid rgba(245, 230, 161, 0.4);
+    border-radius: 20px;
+    padding: 32px 26px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 230, 161, 0.15);
+    animation: surpresaPop 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes surpresaPop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.surpresa-emoji {
+    font-size: 3.2rem;
+    margin-bottom: 8px;
+    animation: surpresaBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes surpresaBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.surpresa-titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #f5e6a1;
+    margin: 0 0 12px;
+    text-shadow: 1px 1px 3px #4b4b3f;
+}
+
+.surpresa-texto {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e8e8e8;
+    margin: 0 0 24px;
+}
+
+.surpresa-botao {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #121212;
+    background-color: #f5e6a1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 28px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.surpresa-botao:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .surpresa-emoji { animation: none; }
+}

@@ -1,41 +1,56 @@
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import './HeartBackground.css';
 
+const ICONES = ['🌻', '❤️', '✨', '🦊', '🤍'];
+
 const HeartBackground = () => {
-    // Usamos useCallback para otimizar a função e evitar que seja recriada a cada renderização
+    // Coração que sobe a partir do clique (efeito original)
     const criarCoracao = useCallback((e) => {
         const heart = document.createElement('div');
         heart.className = 'heart';
-
-        // Posiciona o elemento no local do cursor
         heart.style.left = e.clientX + 'px';
         heart.style.top = e.clientY + 'px';
-        
-        // Duração da animação e ícone aleatórios para dar mais vida
-        heart.style.animationDuration = (1 + Math.random()) + 's'; // Duração entre 1-2s
-        const icones = ['🌻', '❤️', '✨', '🦊'];
-        heart.innerText = icones[Math.floor(Math.random() * icones.length)];
-
+        heart.style.animationDuration = (1 + Math.random()) + 's';
+        heart.innerText = ICONES[Math.floor(Math.random() * ICONES.length)];
         document.body.appendChild(heart);
-
-        // Remove o elemento do DOM depois que a animação terminar
-        setTimeout(() => {
-            heart.remove();
-        }, 2000); // O tempo deve ser igual ou maior que a duração máxima da animação
+        setTimeout(() => heart.remove(), 2000);
     }, []);
 
     useEffect(() => {
-        // Adiciona o "ouvinte" de cliques quando o componente é montado
         window.addEventListener('click', criarCoracao);
-
-        // Função de limpeza: remove o "ouvinte" quando o componente é desmontado
-        return () => {
-            window.removeEventListener('click', criarCoracao);
-        };
+        return () => window.removeEventListener('click', criarCoracao);
     }, [criarCoracao]);
 
-    return null; // O componente em si não renderiza nada visível
+    // Chuva de corações ambiente: caem suavemente do topo de tempos em tempos
+    useEffect(() => {
+        // Respeita quem prefere menos animação (acessibilidade / bateria)
+        const prefereMenosMovimento =
+            typeof window !== 'undefined' &&
+            window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefereMenosMovimento) return;
+
+        const criarChuva = () => {
+            // Não acumula corações quando a aba está em segundo plano
+            if (document.hidden) return;
+
+            const heart = document.createElement('div');
+            heart.className = 'heart-ambiente';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = 12 + Math.random() * 18 + 'px';
+            const duracao = 6 + Math.random() * 6; // 6-12s de queda
+            heart.style.animationDuration = duracao + 's';
+            heart.style.opacity = 0.25 + Math.random() * 0.4;
+            heart.innerText = ICONES[Math.floor(Math.random() * ICONES.length)];
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), duracao * 1000);
+        };
+
+        const intervalo = setInterval(criarChuva, 1400);
+        return () => clearInterval(intervalo);
+    }, []);
+
+    return null;
 };
 
 export default HeartBackground;
-

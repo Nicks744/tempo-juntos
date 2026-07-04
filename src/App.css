@@ -381,3 +381,67 @@ body {
     fill: #121212; /* Cor do texto do botão */
 }
 
+/* --- Contador: total de dias + frase --- */
+.contagem-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #cfc79a;
+    margin: 18px auto 8px;
+    max-width: 420px;
+    line-height: 1.5;
+}
+
+.contagem-total strong {
+    color: #f5e6a1;
+    font-size: 1.2rem;
+}
+
+/* --- Botão comemorar (dispara confete) --- */
+.botao-comemorar {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.35rem;
+    color: #121212;
+    background: linear-gradient(135deg, #f5e6a1, #f0d97a);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 24px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.botao-comemorar:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(245, 230, 161, 0.4);
+}
+
+.botao-comemorar:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* --- Animações de entrada (scroll reveal) --- */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-zoom { transform: scale(0.92); }
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+

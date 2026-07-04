@@ -13,3 +13,13 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+// Registra o service worker para tornar o site instalável (PWA) e funcionar offline
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+    navigator.serviceWorker.register(swUrl).catch((erro) => {
+      console.warn('Falha ao registrar o service worker:', erro);
+    });
+  });
+}
